@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import PasswordComp from "./components/PasswordComp";
+import PasswordInputForm from "./components/PasswordInputForm";
+
+import "./App.scss";
+import { useState } from "react";
 
 function App() {
+  const [length, setLength] = useState(10);
+  const [password, setPassword] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="generator-container">
+        <div className="password-container">
+          <PasswordComp password={password} />
+        </div>
+        <div className="main-input-container">
+          <PasswordInputForm
+            length={length}
+            setLength={setLength}
+            password={password}
+            setPassword={setPassword}
+          />
+        </div>
+      </div>
     </div>
   );
 }
